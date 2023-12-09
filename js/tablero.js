@@ -5,7 +5,7 @@ $(document).ready(function () {
     connect();
 
     function connect() {
-        var socket = new SockJS("http://172.173.196.84:8080/ws");
+        var socket = new SockJS("http://20.22.63.5:8080/ws");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             stompClient.subscribe("/topic/gamestate", function (response) {
@@ -27,7 +27,7 @@ $(document).ready(function () {
     function requestInitialState() {
         $.ajax({
             type: "GET",
-            url: "http://172.173.196.84:8080/api/juego/estado",
+            url: "http://20.22.63.5:8080/api/juego/estado",
             success: function (response) {
                 var gameState = response;
                 updateBoard(gameState);
@@ -43,7 +43,7 @@ $(document).ready(function () {
     function buttonToFalse() {
         $.ajax({
             type: "GET",
-            url: "http://172.173.196.84:8080/api/juego/estado",
+            url: "http://20.22.63.5:8080/api/juego/estado",
             success: function (response) {
                 var gameState = response;
                 console.log("boton estado luego de pulsar : ", gameState.button);
@@ -89,7 +89,7 @@ $(document).ready(function () {
         var name = localStorage.getItem("name");
 
         var url =
-            "http://172.173.196.84:8080/api/juego/mover-ficha?" +
+            "http://20.22.63.5:8080/api/juego/mover-ficha?" +
             "jugador=" +
             encodeURIComponent(name) +
             "&filaOrigen=" +
@@ -122,7 +122,7 @@ $(document).ready(function () {
     
         $.ajax({
             type: "POST",
-            url: "http://172.173.196.84:8080/api/juego/pulsar-boton",
+            url: "http://20.22.63.5:8080/api/juego/pulsar-boton",
             contentType: "application/json",
             data: JSON.stringify({ jugador: name }),
             success: function (response) {

@@ -26,7 +26,7 @@ function registerUserWithToken() {
     if (token) {
         $.ajax({
             type: "POST",
-            url: "http://172.173.196.84:8080/api/juego/registrar-usuario",
+            url: "http://20.22.63.5:8080/api/juego/registrar-usuario",
             data: {
                 nombre: name,
                 token: token

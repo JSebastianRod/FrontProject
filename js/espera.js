@@ -1,6 +1,6 @@
 async function verificarJugadores(token) {
     try {
-        const response = await fetch(`http://172.173.196.84:8080/api/juego/verificar-jugadores?token=${token}`);
+        const response = await fetch(`http://20.22.63.5:8080/api/juego/verificar-jugadores?token=${token}`);
         const data = await response.json();
 
         if (data === 2) {
